@@ -1,10 +1,19 @@
-check-application:
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm ci
-      - run: npm test
+name: ci-node
+
+on: 
+  pull_request:
+    branches:
+      - develop
+      - master
+
+jobs:
+  app-test:
+      runs-on: ubuntu-latest
+      environment: production
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - run: npm ci
+        - run: npm test
