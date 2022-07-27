@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const math = require('./math');
 
 function main() {
